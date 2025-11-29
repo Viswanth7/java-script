@@ -1,46 +1,271 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bttons</title>
-  <style>
-    button{
-      padding: 10px 25px;
-      border: 1px solid black;
-      border-radius: 5px;
-    }
-    .red{
-      background-color: red;
-      color: white;
-    }
-    .blue{
-      background-color: blue;
-      color:white;
-    }
-    .green{
-      background-color: Green;
-      color:white;
-    }
-    .yellow{
-      background-color: yellow;
-      
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Viswanth | Portfolio</title>
+
 </head>
 <body>
-  <center>
-  <button class="red" onclick="bg_color('red')">Red</button>
-  <button class="blue" onclick="bg_color('blue')">Blue</button>
-  <button class="green" onclick="bg_color('green')">Green</button>
-  <button class="yellow" onclick="bg_color('yellow')">Yellow</button>
-  <button onclick="bg_color('white')">Reset</button>
-  </center>
-  <script>
-    function bg_color(clr){
-      document.body.style.backgroundColor=`${clr}`
+
+<header>
+    <h2>Portfolio</h2>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<!-- Home -->
+<section id="home">
+    <h1>Hi, I'm <span style="color:#00E5FF;">Viswanth</span></h1>
+    <div id="typing"></div>
+</section>
+
+<!-- About -->
+<section id="about">
+    <h2>About Me</h2>
+    <p>
+        An enthusiastic web developer who loves building beautiful and user-friendly websites.
+        Skilled in HTML, CSS, JavaScript and always eager to learn new technologies.
+    </p>
+</section>
+
+<!-- Projects -->
+<section id="projects">
+    <h2>My Projects</h2>
+    <div class="projects">
+        <div class="card">
+            <h3>Portfolio Website</h3>
+            <p>A stylish and responsive portfolio built with HTML, CSS, and JavaScript.</p>
+        </div>
+        <div class="card">
+            <h3>Weather App</h3>
+            <p>Real-time weather updates using OpenWeather API.</p>
+        </div>
+        <div class="card">
+            <h3>To-Do App</h3>
+            <p>Task manager with store and filter functions.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+    <h2>Contact Me</h2>
+
+    <input type="text" id="name" placeholder="Your Name">
+    <input type="email" id="email" placeholder="Your Email">
+    <textarea id="msg" placeholder="Your Message" rows="5"></textarea>
+    <button onclick="sendMessage()">Send Message</button>
+    <p id="status"></p>
+</section>
+
+<style>
+    /* Global Styling */
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        scroll-behavior:smooth;
+        font-family: 'Poppins', sans-serif;
     }
-    // bg_color();
-  </script>
+
+    body{
+        background: linear-gradient(135deg, #0D0D0D, #1A1A40);
+        color:white;
+    }
+
+    /* Navbar */
+    header{
+        width:100%;
+        padding:20px 40px;
+        background: rgba(0,0,0,0.5);
+        backdrop-filter: blur(10px);
+        position:fixed;
+        top:0;
+        left:0;
+        z-index:10;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+    }
+
+    header h2{
+        color:#00E5FF;
+        font-size:30px;
+    }
+
+    nav a{
+        margin-left:25px;
+        color:white;
+        text-decoration:none;
+        font-size:18px;
+        transition:0.3s;
+    }
+
+    nav a:hover{
+        color:#00E5FF;
+    }
+
+    /* Home Section */
+    #home{
+        height:100vh;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        text-align:center;
+        padding:20px;
+    }
+
+    #home h1{
+        font-size:55px;
+        animation: fadeIn 2s ease-in-out;
+    }
+
+    #typing{
+        font-size:24px;
+        margin-top:15px;
+        color:#00E5FF;
+        height:30px;
+    }
+
+    @keyframes fadeIn {
+        from{opacity:0;}
+        to{opacity:1;}
+    }
+
+    /* Section Titles */
+    section h2{
+        font-size:40px;
+        margin-bottom:20px;
+        text-align:center;
+        color:#00E5FF;
+    }
+
+    section{
+        padding:80px 60px;
+    }
+
+    /* About Section */
+    #about p{
+        font-size:20px;
+        line-height:1.6;
+        max-width:800px;
+        margin:auto;
+        text-align:center;
+    }
+
+    /* Projects Section */
+    .projects{
+        display:grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+        gap:20px;
+    }
+
+    .card{
+        background:#111;
+        padding:20px;
+        border-radius:12px;
+        box-shadow:0 0 10px rgba(0,255,255,0.3);
+        transition:0.4s;
+        cursor:pointer;
+    }
+
+    .card:hover{
+        transform:scale(1.07);
+        box-shadow:0 0 15px #00E5FF;
+    }
+
+    .card h3{
+        font-size:22px;
+        margin-bottom:10px;
+        color:#00E5FF;
+    }
+
+    /* Contact Form */
+    input, textarea{
+        width:100%;
+        padding:15px;
+        margin:10px 0;
+        border:none;
+        border-radius:8px;
+    }
+
+    button{
+        background:#00E5FF;
+        color:black;
+        padding:12px 20px;
+        border:none;
+        border-radius:8px;
+        cursor:pointer;
+        font-size:18px;
+        transition:0.3s;
+    }
+
+    button:hover{
+        background:white;
+        color:#000;
+        transform:scale(1.05);
+    }
+
+    #status{
+        text-align:center;
+        margin-top:10px;
+        font-size:18px;
+    }
+</style>
+
+<script>
+    /* Typing Animation */
+    const text = ["Web Developer", "Designer", "Programmer", "Student"];
+    let index = 0;
+    let char = 0;
+
+    function typeEffect(){
+        if(char < text[index].length){
+            document.getElementById("typing").innerHTML += text[index].charAt(char);
+            char++;
+            setTimeout(typeEffect, 100);
+        }else{
+            setTimeout(eraseEffect, 1500);
+        }
+    }
+
+    function eraseEffect(){
+        if(char > 0){
+            document.getElementById("typing").innerHTML = text[index].substring(0, char-1);
+            char--;
+            setTimeout(eraseEffect, 50);
+        }else{
+            index = (index + 1) % text.length;
+            setTimeout(typeEffect, 500);
+        }
+    }
+
+    window.onload = typeEffect;
+
+
+    /* Contact Form JS */
+    function sendMessage(){
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let msg = document.getElementById("msg").value;
+
+        if(name === "" || email === "" || msg === ""){
+            document.getElementById("status").innerHTML = "⚠ Please fill all fields!";
+            document.getElementById("status").style.color = "red";
+        }else{
+            document.getElementById("status").innerHTML = "✔ Message Sent Successfully!";
+            document.getElementById("status").style.color = "lightgreen";
+            document.getElementById("name").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("msg").value = "";
+        }
+    }
+</script>
+
 </body>
 </html>

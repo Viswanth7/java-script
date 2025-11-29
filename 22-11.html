@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1> event listners</h1>
+    <input type = "text" placeholder="search your products"/>
+    <script>
+        let input_elements = document.getElementsByTagName("input")
+        input_elements[0].addEventListener("keyup",function(){
+            console.log("event is listening")
+        })
+    </script>
+</body>
+</html>
